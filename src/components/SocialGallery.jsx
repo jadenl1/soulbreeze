@@ -7,10 +7,16 @@ function useIsMobile() {
 		() => typeof window !== "undefined" && window.matchMedia(query).matches,
 	);
 	useEffect(() => {
+		if (typeof window === "undefined" || !window.matchMedia) return;
 		const mq = window.matchMedia(query);
 		const handler = (e) => setIsMobile(e.matches);
-		mq.addEventListener("change", handler);
-		return () => mq.removeEventListener("change", handler);
+		// addEventListener on MediaQueryList is unsupported on older iOS Safari
+		if (mq.addEventListener) mq.addEventListener("change", handler);
+		else if (mq.addListener) mq.addListener(handler);
+		return () => {
+			if (mq.removeEventListener) mq.removeEventListener("change", handler);
+			else if (mq.removeListener) mq.removeListener(handler);
+		};
 	}, []);
 	return isMobile;
 }
