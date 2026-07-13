@@ -1,5 +1,19 @@
 import { useEffect, useState } from "react";
 import { FaInstagram, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+
+function useIsMobile() {
+	const query = "(max-width: 768px)";
+	const [isMobile, setIsMobile] = useState(
+		() => typeof window !== "undefined" && window.matchMedia(query).matches,
+	);
+	useEffect(() => {
+		const mq = window.matchMedia(query);
+		const handler = (e) => setIsMobile(e.matches);
+		mq.addEventListener("change", handler);
+		return () => mq.removeEventListener("change", handler);
+	}, []);
+	return isMobile;
+}
 import placeholder1 from "../assets/gallery-photos/placeholder1.jpg";
 import placeholder2 from "../assets/gallery-photos/placeholder2.jpg";
 import placeholder3 from "../assets/gallery-photos/placeholder3.jpg";
@@ -59,6 +73,56 @@ const photos = [
 ];
 
 export default function SocialGallery() {
+	const isMobile = useIsMobile();
+	return isMobile ? <MobileCarousel /> : <DesktopGallery />;
+}
+
+/* Mobile — peek carousel. Only centers photos that have a neighbor on
+   both sides (2nd through 2nd-to-last), starting on the 2nd photo and
+   rewinding back to it at the end. */
+function MobileCarousel() {
+	const FIRST = 1;
+	const LAST = photos.length - 2;
+	const [activeIndex, setActiveIndex] = useState(FIRST);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setActiveIndex((i) => (i >= LAST ? FIRST : i + 1));
+		}, 3500);
+		return () => clearTimeout(timer);
+	}, [activeIndex]);
+
+	return (
+		<section className="social-gallery social-gallery-mobile">
+			<div className="social-gallery-row" style={{ "--active": activeIndex }}>
+				{photos.map((photo, index) => {
+					const isActive = index === activeIndex;
+					return (
+						<div
+							key={index}
+							className={`social-photo${isActive ? " social-photo-active" : ""}`}
+						>
+							{isActive && (
+								<div className="social-photo-header">
+									<FaInstagram />
+									<span>{photo.username}</span>
+								</div>
+							)}
+							<img
+								src={photo.img}
+								alt={photo.caption}
+								className="social-photo-img"
+							/>
+						</div>
+					);
+				})}
+			</div>
+		</section>
+	);
+}
+
+/* Desktop — click-to-expand gallery */
+function DesktopGallery() {
 	const [activeIndex, setActiveIndex] = useState(2);
 
 	useEffect(() => {

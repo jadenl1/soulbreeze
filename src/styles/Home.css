@@ -60,7 +60,7 @@
 }
 
 .hero-logo {
-	width: 280px;
+	width: 320px;
 	height: auto;
 	object-fit: contain;
 	margin-bottom: 0;
@@ -81,6 +81,11 @@
 	display: flex;
 	gap: 8px;
 	margin-top: 25px;
+}
+
+.hero-buttons .btn {
+	font-size: 15px;
+	padding: 13px 30px;
 }
 
 .btn {
@@ -151,13 +156,13 @@
 .hero-callouts {
 	display: flex;
 	align-items: center;
-	gap: 14px;
+	gap: 16px;
 	margin-top: 15px;
 	margin-bottom: 0px;
 	font-family: "Manrope", sans-serif;
-	font-weight: 600;
-	font-size: 10px;
-	letter-spacing: 2px;
+	font-weight: 700;
+	font-size: 13px;
+	letter-spacing: 2.2px;
 	text-transform: uppercase;
 	color: var(--color-gold);
 	opacity: 1;
@@ -311,6 +316,13 @@
 	background-size: 180%;
 	background-position: center;
 	opacity: 0.1;
+}
+
+/* Zero Sugar card is narrower than the Brewed Tea card, so the same
+   background-size percentage renders smaller in absolute terms. Bump
+   it up so the agave pattern reads at the same physical size. */
+.feature-card-bg-zero {
+	background-size: 300%;
 }
 
 .feature-heading {
@@ -576,4 +588,288 @@
 	display: flex;
 	gap: 12px;
 	margin-top: 8px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	/* Hero */
+	.hero {
+		min-height: 100vh;
+	}
+
+	.hero-content {
+		top: 60px;
+		padding: 0 20px;
+	}
+
+	.hero-logo {
+		width: 260px;
+	}
+
+	.hero-callouts {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 12px;
+		font-size: 11px;
+		letter-spacing: 1.5px;
+		margin-top: 18px;
+	}
+
+	.hero-buttons {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px;
+		margin-top: 26px;
+	}
+
+	.hero-buttons .btn {
+		width: auto;
+		flex: 0 0 auto;
+		font-size: 12.5px;
+		padding: 11px 18px;
+	}
+
+	/* Hero ribbon — show a single can on its own background */
+	.hero-ribbon {
+		height: 34%;
+	}
+
+	.hero-ribbon .ribbon-2,
+	.hero-ribbon .ribbon-3,
+	.hero-ribbon .ribbon-4 {
+		display: none;
+	}
+
+	/* Single full-width segment, keeping the desktop scrolling background */
+	.hero-ribbon .ribbon-1 {
+		flex: 1;
+	}
+
+	.ribbon-can {
+		height: 138%;
+	}
+
+	/* Social gallery — peek carousel: centered photo with the previous
+	   and next photos darkened and peeking off each edge. The track
+	   slides left on the timer to center the next photo. */
+	.social-gallery {
+		padding: 40px 0 10px;
+		overflow: hidden;
+	}
+
+	.social-gallery-row {
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		gap: 0px;
+		width: 100%;
+		transform: translateX(calc(10vw - var(--active, 0) * 80vw));
+		transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change: transform;
+	}
+
+	.social-photo {
+		flex: 0 0 80vw;
+		width: 80vw;
+		height: 98vw;
+		max-height: 470px;
+		border-radius: 10px;
+		filter: brightness(0.4);
+		transform: scale(0.94);
+		transition: filter 0.6s ease, transform 0.6s ease;
+	}
+
+	/* Centered photo is bigger and full brightness */
+	.social-photo-active {
+		flex: 0 0 80vw;
+		filter: brightness(1);
+		transform: scale(1);
+	}
+
+	/* Feature grid — free horizontal scroll row of tall cards */
+	.feature-grid {
+		display: flex;
+		flex-direction: row;
+		gap: 12px;
+		padding: 30px 20px;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+	}
+
+	.feature-grid::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Dissolve the row wrappers so all cards share one scroll track */
+	.feature-row {
+		display: contents;
+	}
+
+	/* Inline flex ratios on the cards (flex:1.5 etc.) would squish them
+	   in a scroll row, so force a fixed basis with !important.
+	   Title sits at top, text at bottom. */
+	.feature-card {
+		flex: 0 0 240px !important;
+		width: 240px;
+		min-height: 340px;
+		padding: 26px 24px;
+		justify-content: space-between;
+	}
+
+	.feature-heading {
+		font-size: 34px;
+	}
+
+	/* Card order: Our Lineup, Real Tequila, Brewed Tea,
+	   Exceptionally Smooth, Zero Sugar */
+	.feature-lineup-card {
+		order: 1;
+	}
+	.feature-row:first-child .feature-light {
+		order: 2;
+	}
+	.feature-row:first-child .feature-dark {
+		order: 3;
+	}
+	.feature-row:last-child .feature-light {
+		order: 4;
+	}
+	.feature-row:last-child .feature-dark {
+		order: 5;
+	}
+
+	/* Match the agave background size across both dark cards */
+	.feature-card-bg-zero {
+		background-size: 180%;
+	}
+
+	/* Lineup can — smaller, tucked into the bottom-right corner */
+	.feature-lineup-can {
+		opacity: 0.9;
+		height: 68%;
+		top: auto;
+		bottom: -6%;
+		right: -4%;
+	}
+
+	/* Dividers — keep only the one above the Ambassador section */
+	.section-divider {
+		margin: 40px 20px;
+	}
+
+	.section-divider:first-of-type {
+		display: none;
+	}
+
+	/* Story — editorial layout: portrait image with an overlapping
+	   content card lifting off the bottom of it. */
+	.story-section {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0;
+		padding: 10px 16px 50px;
+	}
+
+	.story-image-wrap {
+		width: 100%;
+	}
+
+	.story-image {
+		aspect-ratio: 5 / 6;
+		object-fit: cover;
+		border-radius: 24px;
+	}
+
+	.story-content {
+		position: relative;
+		z-index: 1;
+		margin: -56px 14px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+		background-color: #e8e4d7;
+		border-radius: 22px;
+		padding: 30px 26px;
+		box-shadow: 0 18px 44px rgba(0, 43, 81, 0.16);
+	}
+
+	.story-content .story-label {
+		font-size: 11px;
+		letter-spacing: 3px;
+		color: var(--color-gold);
+	}
+
+	.story-content .story-label::before {
+		content: "";
+		display: block;
+		width: 30px;
+		height: 2px;
+		background-color: var(--color-gold);
+		margin-bottom: 12px;
+	}
+
+	.story-heading {
+		font-size: 40px;
+		margin: 12px 0 16px;
+	}
+
+	.story-content .story-text {
+		font-size: 14px;
+		line-height: 1.7;
+		color: rgba(0, 43, 81, 0.72);
+		margin-bottom: 14px;
+	}
+
+	.story-content .story-text:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Ambassador */
+	.ambassador-section {
+		padding: 30px 24px 70px;
+		gap: 14px;
+	}
+
+	.ambassador-heading {
+		font-size: 42px;
+	}
+
+	.ambassador-text {
+		font-size: 14px;
+	}
+
+	.ambassador-buttons {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.ambassador-buttons .btn {
+		width: auto;
+		flex: 0 0 auto;
+		font-size: 12.5px;
+		padding: 11px 18px;
+	}
+}
+
+@media (max-width: 480px) {
+	.hero-logo {
+		width: 220px;
+	}
+
+	.hero-callouts {
+		font-size: 10px;
+		letter-spacing: 1px;
+	}
+
+	.story-heading,
+	.ambassador-heading {
+		font-size: 36px;
+	}
 }

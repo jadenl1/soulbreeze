@@ -9,6 +9,101 @@
 	background-color: var(--color-light);
 }
 
+/* Simple, form-less Contact page */
+
+.contact-simple-page {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(100vh - 60px);
+	padding: 60px 40px;
+	background-color: var(--color-light);
+}
+
+.contact-simple-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 18px;
+	max-width: 460px;
+}
+
+.contact-simple-label-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.contact-simple-rule {
+	width: 28px;
+	height: 1px;
+	background-color: var(--color-gold);
+	opacity: 0.6;
+}
+
+.contact-simple-label {
+	font-family: "Manrope", sans-serif;
+	font-weight: 600;
+	font-size: 11px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: var(--color-gold);
+}
+
+.contact-simple-heading {
+	font-family: "Playfair Display", serif;
+	font-weight: 100;
+	font-style: italic;
+	font-size: 64px;
+	letter-spacing: -2px;
+	line-height: 0.95;
+	color: var(--color-dark);
+	margin: 0;
+}
+
+.contact-simple-text {
+	font-family: "Manrope", sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.6;
+	color: var(--color-secondary-light);
+	max-width: 360px;
+}
+
+.contact-simple-email {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-family: "Manrope", sans-serif;
+	font-weight: 700;
+	font-size: 22px;
+	letter-spacing: -0.2px;
+	color: var(--color-dark);
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	margin-top: 6px;
+	transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-simple-email:hover {
+	color: var(--color-gold);
+	border-bottom-color: var(--color-gold);
+}
+
+.contact-simple-email-icon {
+	font-size: 18px;
+	color: var(--color-gold);
+}
+
+.contact-simple-note {
+	margin-top: 16px;
+	padding-top: 20px;
+	border-top: 1px solid rgba(0, 43, 81, 0.1);
+	width: 100%;
+	text-align: center;
+}
+
 .contact-left {
 	flex: 0 0 auto;
 }
@@ -136,4 +231,58 @@
 .contact-submit {
 	align-self: flex-start;
 	margin-top: 4px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	/* Ambassador form base layout */
+	.contact-page {
+		padding: 100px 24px 60px;
+		gap: 28px;
+	}
+
+	.contact-heading {
+		font-size: 52px;
+		letter-spacing: -2px;
+	}
+
+	.contact-row {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.contact-submit {
+		width: 100%;
+	}
+
+	/* Simple contact page */
+	.contact-simple-page {
+		padding: 80px 24px;
+	}
+
+	.contact-simple-heading {
+		font-size: 52px;
+	}
+
+	.contact-simple-email {
+		font-size: 18px;
+	}
+}
+
+@media (max-width: 480px) {
+	.contact-heading {
+		font-size: 44px;
+	}
+
+	.contact-simple-heading {
+		font-size: 44px;
+	}
+
+	.contact-simple-email {
+		font-size: 16px;
+		gap: 8px;
+	}
 }

@@ -48,7 +48,7 @@ export default function VarietyPackDetail() {
 			{/* Right — info */}
 			<div className="vpd-right">
 				<Link to="/products" className="vpd-back-link" data-aos="fade-up" data-aos-delay="0">
-					← The Lineup
+					← Back
 				</Link>
 
 				<div className="vpd-header" data-aos="fade-up" data-aos-delay="100">
@@ -65,12 +65,12 @@ export default function VarietyPackDetail() {
 					</div>
 				</div>
 
-				<button className="btn btn-filled vpd-cta" data-aos="fade-up" data-aos-delay="200">
+				<Link to="/locations" className="btn btn-filled vpd-cta" data-aos="fade-up" data-aos-delay="200">
 					<span className="btn-label">
 						<span className="btn-label-top">Where to Buy</span>
 						<span className="btn-label-bottom">Where to Buy</span>
 					</span>
-				</button>
+				</Link>
 
 				<div className="vpd-tabs-section" data-aos="fade-up" data-aos-delay="300">
 					<div className="vpd-tabs">

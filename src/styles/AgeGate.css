@@ -112,3 +112,33 @@
 	color: var(--color-light);
 	border: none;
 }
+
+/* ------------------------------------------------------------------ */
+/* Responsive — mobile                                                */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	.ag-content {
+		padding: 0 28px;
+	}
+
+	.ag-heading {
+		font-size: 52px;
+	}
+
+	.ag-buttons {
+		width: 100%;
+		max-width: 300px;
+		flex-direction: column;
+	}
+
+	.ag-buttons .btn {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.ag-heading {
+		font-size: 42px;
+	}
+}

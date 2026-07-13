@@ -66,3 +66,29 @@
 .policy-section a:hover {
 	text-decoration: underline;
 }
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	.policy-page {
+		padding: 100px 24px 60px;
+	}
+
+	.policy-heading {
+		font-size: 48px;
+		letter-spacing: -2px;
+		margin-bottom: 32px;
+	}
+
+	.policy-body {
+		gap: 28px;
+	}
+}
+
+@media (max-width: 480px) {
+	.policy-heading {
+		font-size: 40px;
+	}
+}

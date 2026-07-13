@@ -16,11 +16,9 @@ export default function Locations() {
 					Wherever You Are.
 				</h1>
 				<div className="page-header-callouts" data-aos="fade-up" data-aos-delay="200">
-					<span>East Coast</span>
-					<span className="page-header-dot">·</span>
-					<span>Select Retailers</span>
-					<span className="page-header-dot">·</span>
-					<span>Find One Near You</span>
+					<span className="page-header-callout">Bars &amp; Restaurants</span>
+					<span className="page-header-callout">Retailers</span>
+					<span className="page-header-callout">Find One Near You</span>
 				</div>
 			</section>
 			<div data-aos="fade-up" data-aos-delay="0">

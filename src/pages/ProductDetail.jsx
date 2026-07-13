@@ -26,13 +26,13 @@ export default function ProductDetail() {
 		);
 	}
 
-	const { nutrition } = product;
+	// const { nutrition } = product;
 	const includedIn = VARIETY_PACKS.filter((vp) => vp.flavors.includes(product.id));
 
 	const tabs = [
 		{ id: "description", label: "Description" },
-		{ id: "nutrition", label: "Nutrition Facts" },
-		{ id: "ingredients", label: "Ingredients" },
+		// { id: "nutrition", label: "Nutrition Facts" },
+		// { id: "ingredients", label: "Ingredients" },
 		{ id: "sizes", label: "Sizes & Packs" },
 		...(includedIn.length > 0 ? [{ id: "variety", label: "Variety Packs" }] : []),
 	];
@@ -55,7 +55,7 @@ export default function ProductDetail() {
 			{/* Info */}
 			<div className="pd-right">
 				<Link to="/products" className="pd-back-link" data-aos="fade-up" data-aos-delay="0">
-					← The Lineup
+					← Back
 				</Link>
 
 				<div className="pd-header" data-aos="fade-up" data-aos-delay="100">
@@ -72,12 +72,12 @@ export default function ProductDetail() {
 					</div>
 				</div>
 
-				<button className="btn btn-filled pd-cta" data-aos="fade-up" data-aos-delay="200">
+				<Link to="/locations" className="btn btn-filled pd-cta" data-aos="fade-up" data-aos-delay="200">
 					<span className="btn-label">
 						<span className="btn-label-top">Where to Buy</span>
 						<span className="btn-label-bottom">Where to Buy</span>
 					</span>
-				</button>
+				</Link>
 
 				<div className="pd-tabs-section" data-aos="fade-up" data-aos-delay="300">
 					<div className="pd-tabs">
@@ -99,7 +99,7 @@ export default function ProductDetail() {
 							<p className="pd-description">{product.description}</p>
 						)}
 
-						{activeTab === "nutrition" && (
+						{/* {activeTab === "nutrition" && (
 							<div className="pd-nutrition-grid">
 								<div className="pd-nutrition-row pd-nutrition-calories">
 									<span>Calories</span><span className="pd-nutrition-cal-num">{nutrition.calories}</span>
@@ -127,11 +127,11 @@ export default function ProductDetail() {
 								</div>
 								<p className="pd-serving">Per {nutrition.servingSize}</p>
 							</div>
-						)}
+						)} */}
 
-						{activeTab === "ingredients" && (
+						{/* {activeTab === "ingredients" && (
 							<p className="pd-text">{product.ingredients}</p>
-						)}
+						)} */}
 
 						{activeTab === "sizes" && (
 							<div className="pd-sizes">

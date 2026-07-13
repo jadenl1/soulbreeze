@@ -290,3 +290,75 @@
 	text-align: center;
 	font-family: "Manrope", sans-serif;
 }
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+	.vpd-page {
+		position: relative;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 32px;
+		padding: 128px 24px 60px;
+	}
+
+	.vpd-left {
+		align-self: center;
+	}
+
+	/* Float the back link over the top, matching the product page */
+	.vpd-back-link {
+		position: absolute;
+		top: 88px;
+		left: 24px;
+		z-index: 2;
+	}
+}
+
+@media (max-width: 768px) {
+	.vpd-placeholder {
+		width: 240px;
+		height: 240px;
+	}
+
+	.vpd-name {
+		font-size: 48px;
+		letter-spacing: -2px;
+	}
+
+	.vpd-tabs {
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.vpd-tabs::-webkit-scrollbar {
+		display: none;
+	}
+
+	.vpd-tab {
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.vpd-flavors-grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 8px;
+	}
+}
+
+@media (max-width: 480px) {
+	.vpd-placeholder {
+		width: 200px;
+		height: 200px;
+	}
+
+	.vpd-name {
+		font-size: 40px;
+	}
+
+	.vpd-callouts {
+		gap: 24px;
+	}
+}

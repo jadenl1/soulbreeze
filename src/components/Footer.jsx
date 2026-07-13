@@ -11,34 +11,36 @@ export default function Footer() {
       <div className="footer-content">
         <img src={logo} alt="Soul Breeze" className="footer-logo" />
 
-        <div className="footer-col">
-          <span className="footer-col-title">EXPLORE</span>
-          <Link to="/products" className="footer-link">Our Lineup</Link>
-          <Link to="/locations" className="footer-link">Locations</Link>
-          <Link to="/ambassador" className="footer-link">Become an Ambassador</Link>
-        </div>
+        <div className="footer-cols">
+          <div className="footer-col">
+            <span className="footer-col-title">EXPLORE</span>
+            <Link to="/products" className="footer-link">Our Lineup</Link>
+            <Link to="/locations" className="footer-link">Locations</Link>
+            <Link to="/ambassador" className="footer-link">Become an Ambassador</Link>
+          </div>
 
-        <div className="footer-col">
-          <span className="footer-col-title">SUPPORT</span>
-          <Link to="/contact" className="footer-link">Contact Us</Link>
-        </div>
+          <div className="footer-col">
+            <span className="footer-col-title">SUPPORT</span>
+            <Link to="/contact" className="footer-link">Contact Us</Link>
+          </div>
 
-        <div className="footer-col">
-          <span className="footer-col-title">LEGAL</span>
-          <Link to="/privacy" className="footer-link">Privacy Policy</Link>
-          <Link to="/terms" className="footer-link">Terms of Service</Link>
-          <Link to="/cookies" className="footer-link">Cookie Policy</Link>
-        </div>
+          <div className="footer-col">
+            <span className="footer-col-title">LEGAL</span>
+            <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            <Link to="/terms" className="footer-link">Terms of Service</Link>
+            <Link to="/cookies" className="footer-link">Cookie Policy</Link>
+          </div>
 
-        <div className="footer-col">
-          <span className="footer-col-title">SOCIAL</span>
-          <div className="footer-social">
-            <a href="#" aria-label="Instagram" className="footer-icon">
-              <FaInstagram />
-            </a>
-            <a href="#" aria-label="TikTok" className="footer-icon">
-              <FaTiktok />
-            </a>
+          <div className="footer-col">
+            <span className="footer-col-title">SOCIAL</span>
+            <div className="footer-social">
+              <a href="#" aria-label="Instagram" className="footer-icon">
+                <FaInstagram />
+              </a>
+              <a href="#" aria-label="TikTok" className="footer-icon">
+                <FaTiktok />
+              </a>
+            </div>
           </div>
         </div>
 

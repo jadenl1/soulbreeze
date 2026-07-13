@@ -29,7 +29,7 @@ export default function Home() {
 						<span className="hero-callout-dot">·</span>
 						<span>Brewed Tea</span>
 						<span className="hero-callout-dot">·</span>
-						<span>Refreshing Taste</span>
+						<span>No Bubbles</span>
 					</div>
 					<div className="hero-buttons" data-aos="fade-up" data-aos-delay="200">
 						<button className="btn btn-filled">
@@ -82,10 +82,10 @@ export default function Home() {
 						data-aos="fade-up"
 						data-aos-delay="0"
 					>
-						<h2 className="feature-heading feature-heading-dark">Real Blue Agave</h2>
+						<h2 className="feature-heading feature-heading-dark">Real Tequila</h2>
 						<p className="feature-text feature-text-accent">
-							Sourced from the heart of Jalisco, our tequila provides a smooth, earthy
-							backbone to every flavor profile.
+							Crafted with authentic tequila from Jalisco, Mexico for the smooth,
+							refreshing finish that defines every SoulBreeze.
 						</p>
 					</div>
 					<div
@@ -98,9 +98,9 @@ export default function Home() {
 							className="feature-card-bg"
 							style={{ backgroundImage: `url(${agaveBlue})` }}
 						/>
-						<h2 className="feature-heading feature-heading-accent">Artisanal Tea</h2>
+						<h2 className="feature-heading feature-heading-accent">Brewed Tea</h2>
 						<p className="feature-text feature-text-light">
-							Steeped with love to preserve the flavor that makes soul breeze.
+							Because every great sip starts with great tea.
 						</p>
 					</div>
 				</div>
@@ -112,11 +112,13 @@ export default function Home() {
 						data-aos-delay="0"
 					>
 						<div
-							className="feature-card-bg"
+							className="feature-card-bg feature-card-bg-zero"
 							style={{ backgroundImage: `url(${agaveBlue})` }}
 						/>
-						<h2 className="feature-heading feature-heading-accent">Zero</h2>
-						<p className="feature-text feature-text-light">Added sugars</p>
+						<h2 className="feature-heading feature-heading-accent">Zero Sugar</h2>
+						<p className="feature-text feature-text-light">
+							All of the flavor, none of the sugar.
+						</p>
 					</div>
 					<div
 						className="feature-card feature-light"
@@ -124,9 +126,12 @@ export default function Home() {
 						data-aos="fade-up"
 						data-aos-delay="120"
 					>
-						<h2 className="feature-heading feature-heading-dark">The Classic</h2>
+						<h2 className="feature-heading feature-heading-dark">
+							Exceptionally Smooth
+						</h2>
 						<p className="feature-text feature-text-accent">
-							Our signature blend of Tequila + Black Tea + Lime
+							No Bubbles by design for a clean, easy drinking experience from the
+							first sip to the last.
 						</p>
 					</div>
 					<Link
@@ -138,7 +143,9 @@ export default function Home() {
 						<div className="feature-lineup-can-wrap">
 							<img src={can} alt="" className="feature-lineup-can" />
 						</div>
-						<h2 className="feature-heading feature-heading-dark feature-lineup-heading">Our Lineup</h2>
+						<h2 className="feature-heading feature-heading-dark feature-lineup-heading">
+							Our Lineup
+						</h2>
 						<MdArrowOutward className="feature-lineup-arrow" />
 					</Link>
 				</div>
@@ -147,10 +154,6 @@ export default function Home() {
 			<section className="story-section">
 				<div className="story-image-wrap" data-aos="fade-up" data-aos-delay="0">
 					<img src={cheers} alt="Cheers with Soul Breeze cans" className="story-image" />
-					<div className="story-badge">
-						<span>EST. 2026</span>
-						<span>EAST COAST</span>
-					</div>
 				</div>
 				<div className="story-content">
 					<span className="story-label" data-aos="fade-up" data-aos-delay="0">
@@ -160,29 +163,29 @@ export default function Home() {
 						Created With Soul.
 					</h2>
 					<p className="story-text" data-aos="fade-up" data-aos-delay="180">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat.
+						Tea has always been refreshing. Tequila has always brought people together.
+						We believe the two belong together.
 					</p>
 					<p className="story-text" data-aos="fade-up" data-aos-delay="240">
-						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-						eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-						sunt in culpa qui officia deserunt mollit anim id est laborum.
+						So we combined premium tequila crafted in Jalisco, Mexico with freshly
+						brewed tea to create a smooth, refreshing cocktail that's incredibly easy to
+						drink. No unnecessary ingredients. No compromise. Just a better way to enjoy
+						tequila. Whether you're by the pool, relaxing with friends, or celebrating
+						life's biggest moments, SoulBreeze is crafted to elevate every occasion.
 					</p>
 				</div>
 			</section>
 			<hr className="section-divider" />
 			<section className="ambassador-section">
 				<span className="ambassador-label" data-aos="fade-up" data-aos-delay="0">
-					FOLLOW THE BREEZE
+					THE SOULBREEZE CREW
 				</span>
 				<h2 className="ambassador-heading" data-aos="fade-up" data-aos-delay="100">
-					Repping Soulbreeze.
+					More Than an Ambassador.
 				</h2>
 				<p className="ambassador-text" data-aos="fade-up" data-aos-delay="180">
-					Already posting about us? Tag us and join the crew. Ambassadors get early access
-					to new flavors, exclusive merch, and a cut of every sale they bring in.
+					Love SoulBreeze? Join the Crew. Get exclusive merchandise, special giveaways,
+					and opportunities available only to our ambassadors.
 				</p>
 				<div className="ambassador-social" data-aos="fade-up" data-aos-delay="260">
 					<a href="#" aria-label="Instagram" className="ambassador-icon">

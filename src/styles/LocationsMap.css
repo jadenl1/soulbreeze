@@ -312,3 +312,29 @@
 .map-popup-directions:hover {
 	opacity: 0.85;
 }
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	.locations-map-card {
+		flex-direction: column-reverse;
+		height: auto;
+		margin: 0 16px 60px;
+		border-radius: 18px;
+	}
+
+	.locations-sidebar {
+		width: 100%;
+	}
+
+	.locations-list {
+		max-height: 220px;
+	}
+
+	.locations-map-wrap {
+		height: 380px;
+		flex: none;
+	}
+}

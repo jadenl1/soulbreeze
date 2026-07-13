@@ -63,8 +63,10 @@
 
 .products-hero-callouts {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	gap: 14px;
+	justify-content: center;
+	gap: 6px 0;
 	font-family: "Manrope", sans-serif;
 	font-weight: 600;
 	font-size: 10px;
@@ -73,7 +75,15 @@
 	color: var(--color-secondary-light);
 }
 
-.products-hero-dot {
+/* Each item carries its own trailing separator so a dot can never
+   wrap onto a new line by itself. */
+.products-hero-callout {
+	white-space: nowrap;
+}
+
+.products-hero-callout:not(:last-child)::after {
+	content: "·";
+	margin: 0 10px;
 	color: var(--color-secondary-light);
 }
 
@@ -106,46 +116,33 @@
 	margin: 0 -12px;
 }
 
-/* Type tabs */
+/* Section headers */
 
-.products-type-tabs {
-	position: relative;
+.products-section-header {
 	display: flex;
+	align-items: center;
 	justify-content: center;
-	gap: 0;
-	margin-bottom: 40px;
-	border-bottom: 1px solid var(--color-secondary-light);
-}
-
-.products-type-tab {
+	gap: 22px;
 	font-family: "Manrope", sans-serif;
 	font-weight: 600;
-	font-size: 12px;
-	letter-spacing: 2px;
+	font-size: 13px;
+	letter-spacing: 4px;
 	text-transform: uppercase;
-	color: var(--color-secondary-light);
-	background: none;
-	border: none;
-	padding: 0 0 12px;
-	margin: 0 20px;
-	cursor: pointer;
-	transition: color 0.2s ease;
-}
-
-.products-type-tab:hover {
 	color: var(--color-dark);
+	margin: 0 0 40px;
 }
 
-.products-type-tab-active {
-	color: var(--color-dark);
+/* Centered label with a hairline rule extending to each side */
+.products-section-header::before,
+.products-section-header::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background-color: var(--color-secondary-light);
 }
 
-.products-type-tab-indicator {
-	position: absolute;
-	bottom: -1px;
-	height: 2px;
-	background-color: var(--color-dark);
-	transition: left 0.25s ease, width 0.25s ease;
+.products-section-header-variety {
+	margin-top: 80px;
 }
 
 /* Variety cards */
@@ -188,7 +185,7 @@
 
 .products-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 14px;
 }
 
@@ -386,5 +383,150 @@
 	width: auto;
 	object-fit: contain;
 	opacity: 0.9;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	.products-hero {
+		padding: 100px 20px 0;
+	}
+
+	.products-hero-content {
+		gap: 20px;
+		padding-bottom: 330px;
+	}
+
+	.products-hero-heading {
+		font-size: 64px;
+	}
+
+	.products-hero-cans {
+		width: auto;
+	}
+
+	/* Show only the middle 6 cans on mobile (13 total) */
+	.products-hero-can-img:nth-child(-n + 4),
+	.products-hero-can-img:nth-child(n + 11) {
+		display: none;
+	}
+
+	.products-hero-can-img {
+		height: 290px;
+		margin: 0 -14px;
+	}
+
+	/* Grids */
+	.products-grid-section {
+		padding: 50px 20px 40px;
+	}
+
+	/* Cans — single horizontally scrollable row (leave variety grid alone).
+	   Full-bleed so the edge fades reach the screen edges. */
+	.products-grid:not(.products-grid-variety) {
+		display: flex;
+		flex-direction: row;
+		gap: 4px;
+		margin: 0 -20px;
+		padding: 0 20px;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 34px,
+			#000 calc(100% - 34px),
+			transparent 100%
+		);
+		mask-image: linear-gradient(
+			to right,
+			transparent 0,
+			#000 34px,
+			#000 calc(100% - 34px),
+			transparent 100%
+		);
+	}
+
+	.products-grid:not(.products-grid-variety)::-webkit-scrollbar {
+		display: none;
+	}
+
+	.products-grid:not(.products-grid-variety) .product-card {
+		flex: 0 0 60%;
+	}
+
+	/* No hover lift on touch (it sticks after a tap) */
+	.product-card:hover .product-can {
+		transform: none;
+	}
+
+	.products-section-header {
+		gap: 16px;
+		margin-bottom: 28px;
+	}
+
+	.products-section-header-variety {
+		margin-top: 52px;
+	}
+
+	.product-can-wrap {
+		height: 220px;
+		padding-top: 16px;
+	}
+
+	.product-can {
+		height: 200px;
+	}
+
+	.product-card-body {
+		padding: 16px 8px;
+		gap: 6px;
+	}
+
+	.product-name {
+		font-size: 26px;
+	}
+
+	.product-stats {
+		gap: 12px;
+	}
+
+	/* Single variety pack — centered, not oversized */
+	.products-grid-variety {
+		grid-template-columns: 1fr;
+		max-width: 320px;
+		margin: 0 auto;
+	}
+
+	.variety-card-body {
+		padding: 18px;
+	}
+}
+
+@media (max-width: 480px) {
+	.products-hero-heading {
+		font-size: 52px;
+	}
+
+	.products-hero-can-img {
+		height: 230px;
+		margin: 0 -11px;
+	}
+
+	.products-hero-content {
+		padding-bottom: 265px;
+	}
+
+	.product-name {
+		font-size: 22px;
+	}
+
+	.product-stat-value {
+		font-size: 18px;
+	}
 }
 

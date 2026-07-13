@@ -403,3 +403,77 @@
 	text-align: center;
 	font-family: "Manrope", sans-serif;
 }
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+	.pd-page {
+		position: relative;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 32px;
+		padding: 128px 24px 60px;
+	}
+
+	.pd-left {
+		align-self: center;
+	}
+
+	/* Float the back link over the top of the can image */
+	.pd-back-link {
+		position: absolute;
+		top: 88px;
+		left: 24px;
+		z-index: 2;
+	}
+}
+
+@media (max-width: 768px) {
+	.pd-can-img {
+		height: 320px;
+	}
+
+	.pd-name {
+		font-size: 48px;
+		letter-spacing: -2px;
+	}
+
+	/* Let tabs scroll horizontally instead of wrapping/overflowing */
+	.pd-tabs {
+		overflow-x: auto;
+		scrollbar-width: none;
+	}
+
+	.pd-tabs::-webkit-scrollbar {
+		display: none;
+	}
+
+	.pd-tab {
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.pd-variety-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.pd-sizes {
+		gap: 24px;
+	}
+}
+
+@media (max-width: 480px) {
+	.pd-can-img {
+		height: 260px;
+	}
+
+	.pd-name {
+		font-size: 40px;
+	}
+
+	.pd-callouts {
+		gap: 16px;
+	}
+}

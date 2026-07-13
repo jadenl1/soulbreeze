@@ -30,6 +30,12 @@
 	object-fit: contain;
 }
 
+/* On desktop the wrapper is transparent so the columns lay out
+   directly in the footer flex row exactly as before. */
+.footer-cols {
+	display: contents;
+}
+
 .footer-col {
 	display: flex;
 	flex-direction: column;
@@ -88,4 +94,34 @@
 	color: var(--color-light);
 	text-align: right;
 	white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Responsive — tablet & mobile                                       */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+	.footer-content {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 32px;
+		padding: 40px 24px;
+	}
+
+	.footer-logo {
+		width: 96px;
+	}
+
+	.footer-cols {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 28px 24px;
+		width: 100%;
+	}
+
+	.footer-meta {
+		margin-left: 0;
+		align-items: flex-start;
+		text-align: left;
+	}
 }
