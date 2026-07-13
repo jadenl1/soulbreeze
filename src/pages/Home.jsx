@@ -32,12 +32,12 @@ export default function Home() {
 						<span>No Bubbles</span>
 					</div>
 					<div className="hero-buttons" data-aos="fade-up" data-aos-delay="200">
-						<button className="btn btn-filled">
+						<Link to="/locations" className="btn btn-filled">
 							<span className="btn-label">
 								<span className="btn-label-top">Our Locations</span>
 								<span className="btn-label-bottom">Our Locations</span>
 							</span>
-						</button>
+						</Link>
 						<Link to="/ambassador" className="btn btn-outline-bordered">
 							<span className="btn-label">
 								<span className="btn-label-top">Become an Ambassador</span>
@@ -196,18 +196,18 @@ export default function Home() {
 					</a>
 				</div>
 				<div className="ambassador-buttons" data-aos="fade-up" data-aos-delay="340">
-					<button className="btn btn-filled">
+					<Link to="/locations" className="btn btn-filled">
 						<span className="btn-label">
 							<span className="btn-label-top">Our Locations</span>
 							<span className="btn-label-bottom">Our Locations</span>
 						</span>
-					</button>
-					<button className="btn btn-outline-bordered">
+					</Link>
+					<Link to="/ambassador" className="btn btn-outline-bordered">
 						<span className="btn-label">
 							<span className="btn-label-top">Become an Ambassador</span>
 							<span className="btn-label-bottom">Become an Ambassador</span>
 						</span>
-					</button>
+					</Link>
 				</div>
 			</section>
 		</>

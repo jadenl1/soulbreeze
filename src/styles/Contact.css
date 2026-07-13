@@ -255,7 +255,8 @@
 	}
 
 	.contact-submit {
-		width: 100%;
+		width: auto;
+		align-self: flex-start;
 	}
 
 	/* Simple contact page */
