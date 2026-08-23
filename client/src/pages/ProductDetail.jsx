@@ -1,6 +1,7 @@
 import { Fragment, useState, useRef, useLayoutEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa6";
+import HighlightIcon from "../components/HighlightIcon";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
 import "../styles/ProductDetail.css";
 
@@ -98,7 +99,19 @@ export default function ProductDetail() {
 
 					<div className="pd-tab-content" key={activeTab}>
 						{activeTab === "description" && (
-							<p className="pd-description">{product.description}</p>
+							<>
+								<p className="pd-description">{product.description}</p>
+								<ul className="pd-highlights">
+									{product.highlights.map((h) => (
+										<li key={h.label} className="pd-highlight">
+											<span className="pd-highlight-icon">
+												<HighlightIcon name={h.icon} />
+											</span>
+											<span className="pd-highlight-label">{h.label}</span>
+										</li>
+									))}
+								</ul>
+							</>
 						)}
 
 						{activeTab === "serving" && (

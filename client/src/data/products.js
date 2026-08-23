@@ -28,6 +28,11 @@ export const PRODUCTS = [
     rating: 5,
     description:
       "The sweet tea you know and love, reimagined with premium tequila. Smooth, refreshing, and made for wherever the day takes you.",
+    highlights: [
+      { icon: "caffeine", label: "CAFFEINE FREE" },
+      { icon: "bubbles", label: "NO BUBBLES" },
+      { icon: "carbs", label: "2g CARBS" },
+    ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "70", label: "Cal" },
@@ -38,7 +43,7 @@ export const PRODUCTS = [
       calories: 70,
       totalFat: "0g",
       sodium: "10mg",
-      totalCarbs: "1g",
+      totalCarbs: "2g",
       totalSugars: "0g",
       addedSugars: "0g",
       protein: "0g",
@@ -57,6 +62,11 @@ export const PRODUCTS = [
     rating: 4,
     description:
       "You love peach tea. We made it with premium tequila. Smooth, refreshing, and ready for every occasion.",
+    highlights: [
+      { icon: "caffeine", label: "CAFFEINE FREE" },
+      { icon: "bubbles", label: "NO BUBBLES" },
+      { icon: "carbs", label: "0g CARBS" },
+    ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "80", label: "Cal" },
@@ -67,7 +77,7 @@ export const PRODUCTS = [
       calories: 80,
       totalFat: "0g",
       sodium: "10mg",
-      totalCarbs: "1g",
+      totalCarbs: "0g",
       totalSugars: "0g",
       addedSugars: "0g",
       protein: "0g",
@@ -86,6 +96,11 @@ export const PRODUCTS = [
     rating: 5,
     description:
       "Sweet raspberry tea meets premium tequila for a refreshingly different take on a classic favorite.",
+    highlights: [
+      { icon: "caffeine", label: "CAFFEINE FREE" },
+      { icon: "bubbles", label: "NO BUBBLES" },
+      { icon: "carbs", label: "0g CARBS" },
+    ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "70", label: "Cal" },
@@ -96,7 +111,7 @@ export const PRODUCTS = [
       calories: 70,
       totalFat: "0g",
       sodium: "10mg",
-      totalCarbs: "1g",
+      totalCarbs: "0g",
       totalSugars: "0g",
       addedSugars: "0g",
       protein: "0g",
@@ -115,6 +130,11 @@ export const PRODUCTS = [
     rating: 4,
     description:
       "You already love lemonade and tea. We made it with premium tequila.",
+    highlights: [
+      { icon: "caffeine", label: "CAFFEINE FREE" },
+      { icon: "bubbles", label: "NO BUBBLES" },
+      { icon: "carbs", label: "2g CARBS" },
+    ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "80", label: "Cal" },
@@ -125,7 +145,7 @@ export const PRODUCTS = [
       calories: 80,
       totalFat: "0g",
       sodium: "10mg",
-      totalCarbs: "1g",
+      totalCarbs: "2g",
       totalSugars: "0g",
       addedSugars: "0g",
       protein: "0g",
