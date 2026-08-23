@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
@@ -25,7 +26,7 @@ export default function Products() {
 					</h1>
 					<div className="products-hero-callouts" data-aos="fade-up" data-aos-delay="200">
 						<span className="products-hero-callout">4.5% Alc/Vol</span>
-						<span className="products-hero-callout">000 Cal</span>
+						<span className="products-hero-callout">70–80 Cal</span>
 						<span className="products-hero-callout">Gluten Free</span>
 						<span className="products-hero-callout">Zero Sugar</span>
 						<span className="products-hero-callout">No Bubbles</span>
@@ -79,20 +80,15 @@ export default function Products() {
 									)}
 								</div>
 								<div className="product-stats">
-									<div className="product-stat">
-										<span className="product-stat-value">4.5%</span>
-										<span className="product-stat-label">ABV</span>
-									</div>
-									<div className="product-stat-divider" />
-									<div className="product-stat">
-										<span className="product-stat-value">000</span>
-										<span className="product-stat-label">CAL</span>
-									</div>
-									<div className="product-stat-divider" />
-									<div className="product-stat">
-										<span className="product-stat-value">0g</span>
-										<span className="product-stat-label">SUGAR</span>
-									</div>
+									{flavor.callouts.map((c, ci) => (
+										<Fragment key={c.label}>
+											{ci > 0 && <div className="product-stat-divider" />}
+											<div className="product-stat">
+												<span className="product-stat-value">{c.value}</span>
+												<span className="product-stat-label">{c.label}</span>
+											</div>
+										</Fragment>
+									))}
 								</div>
 							</div>
 						</Link>

@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { Fragment, useState, useRef, useLayoutEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
@@ -43,10 +43,13 @@ export default function ProductDetail() {
 				<img src={product.image} alt={product.name} className="pd-can-img" />
 				<div className="pd-callouts">
 					{product.callouts.map((c, i) => (
-						<div key={i} className="pd-callout">
-							<span className="pd-callout-value">{c.value}</span>
-							<span className="pd-callout-label">{c.label}</span>
-						</div>
+						<Fragment key={c.label}>
+							{i > 0 && <div className="pd-callout-divider" />}
+							<div className="pd-callout">
+								<span className="pd-callout-value">{c.value}</span>
+								<span className="pd-callout-label">{c.label}</span>
+							</div>
+						</Fragment>
 					))}
 				</div>
 			</div>

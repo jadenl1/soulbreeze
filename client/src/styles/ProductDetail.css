@@ -117,9 +117,12 @@
 
 /* Callouts */
 
+/* Mirrors .product-stat* on the Products grid so a flavor's numbers look
+   the same wherever they appear. */
 .pd-callouts {
 	display: flex;
-	gap: 20px;
+	align-items: center;
+	gap: 16px;
 	justify-content: center;
 	flex-wrap: wrap;
 }
@@ -132,9 +135,10 @@
 }
 
 .pd-callout-value {
-	font-family: "Manrope", sans-serif;
-	font-weight: 700;
-	font-size: 20px;
+	font-family: "Playfair Display", serif;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 22px;
 	line-height: 1;
 	color: var(--color-dark);
 }
@@ -143,9 +147,15 @@
 	font-family: "Manrope", sans-serif;
 	font-weight: 600;
 	font-size: 9px;
-	letter-spacing: 1.5px;
+	letter-spacing: 2px;
 	text-transform: uppercase;
-	color: var(--color-dark);
+	color: var(--color-secondary-light);
+}
+
+.pd-callout-divider {
+	width: 1px;
+	height: 30px;
+	background-color: var(--color-secondary-light);
 }
 
 /* CTA */
