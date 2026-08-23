@@ -242,17 +242,17 @@
 }
 
 /* Description tab: At a Glance / About / Sizes & Packs, each under a small
-   ruled header. Matches .amb-section-label on the ambassador form. */
+   gold header. */
 .pd-overview {
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 34px;
 }
 
 .pd-section {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
+	gap: 14px;
 }
 
 .pd-section-label {
@@ -262,20 +262,21 @@
 	letter-spacing: 3px;
 	text-transform: uppercase;
 	color: var(--color-gold);
-	padding-bottom: 6px;
-	border-bottom: 1px solid rgba(201, 201, 186, 0.5);
 }
 
-/* Benefit panel — one tinted card split into three columns, so it reads as
-   a spec strip rather than a row of loose tags. */
+/* Benefit panel — a tinted card split into columns, so it reads as a spec
+   strip rather than a row of loose tags. Spans the full column width like
+   the sections above and below it, rather than stopping short. */
 .pd-highlights {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	list-style: none;
-	max-width: 460px;
+	/* 1px gaps let the container colour show through as hairline rules, so
+	   the grid keeps dividing itself correctly when it drops to 2 columns. */
+	gap: 1px;
+	background-color: rgba(201, 201, 186, 0.7);
 	border: 1px solid rgba(201, 201, 186, 0.7);
 	border-radius: 14px;
-	background-color: rgba(201, 201, 186, 0.14);
 	overflow: hidden;
 }
 
@@ -284,12 +285,11 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 11px;
-	padding: 20px 10px 18px;
+	padding: 22px 10px;
 	text-align: center;
-}
-
-.pd-highlight + .pd-highlight {
-	border-left: 1px solid rgba(201, 201, 186, 0.7);
+	/* --color-light warmed toward --color-secondary-light. Opaque, so the
+	   hairline gaps behind the cells stay hidden. */
+	background-color: #f1efe2;
 }
 
 .pd-highlight-icon {
@@ -345,8 +345,20 @@
 	border-bottom: none;
 }
 
-.pd-nutrition-row span:last-child {
+/* Direct child only — the amount sits inside the left span and must not be
+   caught by this. */
+.pd-nutrition-row > span:last-child {
 	font-weight: 600;
+}
+
+/* As on the printed panel: the nutrient name carries the weight, the amount
+   beside it stays plain. */
+.pd-nutrition-name {
+	font-weight: 600;
+}
+
+.pd-nutrition-amount {
+	font-weight: 400;
 }
 
 .pd-nutrition-calories {
@@ -354,7 +366,7 @@
 	padding-bottom: 8px;
 	margin-bottom: 2px;
 	font-weight: 700;
-	font-size: 13px;
+	font-size: 20px;
 }
 
 .pd-nutrition-cal-num {
@@ -363,18 +375,69 @@
 	line-height: 1;
 }
 
-.pd-nutrition-indent {
+/* Indent depth mirrors the printed panel: sub-nutrients sit under their
+   parent, added sugars under total sugars. Same size as the rows above
+   them — only the indent and the lighter weight set them apart. */
+.pd-nutrition-indent-1 {
 	padding-left: 16px;
-	font-size: 11px;
-	opacity: 0.75;
+	opacity: 0.8;
 }
 
-.pd-serving {
-	font-family: "Manrope", sans-serif;
-	font-size: 10px;
-	color: var(--color-secondary-light);
-	margin-top: 8px;
+.pd-nutrition-indent-2 {
+	padding-left: 32px;
+	opacity: 0.8;
 }
+
+.pd-nutrition-indent-1 .pd-nutrition-name,
+.pd-nutrition-indent-2 .pd-nutrition-name,
+.pd-nutrition-indent-1 > span:last-child,
+.pd-nutrition-indent-2 > span:last-child {
+	font-weight: 400;
+}
+
+.pd-nutrition-italic {
+	font-style: italic;
+}
+
+.pd-nutrition {
+	display: flex;
+	flex-direction: column;
+}
+
+.pd-nutrition-serving-head {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	font-family: "Manrope", sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--color-dark);
+	padding-bottom: 6px;
+}
+
+/* Sets the alcohol line apart from the nutrients above it. */
+.pd-nutrition-rule {
+	border-top: 2px solid var(--color-dark);
+	margin-top: 2px;
+	font-weight: 700;
+}
+
+/* The alcohol row already reads as its own line; drop the rule that would
+   otherwise stack up against the row above it. */
+.pd-nutrition-row:has(+ .pd-nutrition-rule) {
+	border-bottom: none;
+}
+
+.pd-nutrition-footnote {
+	font-family: "Manrope", sans-serif;
+	font-size: 9px;
+	line-height: 1.5;
+	color: var(--color-secondary-light);
+	border-top: 4px solid var(--color-dark);
+	padding-top: 6px;
+	margin-top: 2px;
+}
+
 
 .pd-sizes {
 	display: flex;
@@ -518,6 +581,11 @@
 @media (max-width: 768px) {
 	.pd-can-img {
 		height: 320px;
+	}
+
+	/* Four across is too narrow for the labels on a phone. */
+	.pd-highlights {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.pd-name {

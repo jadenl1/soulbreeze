@@ -139,32 +139,41 @@ export default function ProductDetail() {
 						)}
 
 						{activeTab === "serving" && (
-							<div className="pd-nutrition-grid">
-								<div className="pd-nutrition-row pd-nutrition-calories">
-									<span>Calories</span><span className="pd-nutrition-cal-num">{nutrition.calories}</span>
+							<div className="pd-nutrition">
+								<p className="pd-nutrition-serving-head">
+									{nutrition.servingsPerContainer} Serving Per Container
+									<span>Serving Size {nutrition.servingSize}</span>
+								</p>
+
+								<div className="pd-nutrition-grid">
+									<div className="pd-nutrition-row pd-nutrition-calories">
+										<span>Calories</span>
+										<span className="pd-nutrition-cal-num">{nutrition.calories}</span>
+									</div>
+
+									{nutrition.rows.map((r) => (
+										<div
+											key={r.label}
+											className={`pd-nutrition-row${r.indent ? ` pd-nutrition-indent-${r.indent}` : ""}`}
+										>
+											<span className={r.italic ? "pd-nutrition-italic" : undefined}>
+												<span className="pd-nutrition-name">{r.label}</span>
+												{r.value ? <span className="pd-nutrition-amount"> {r.value}</span> : null}
+											</span>
+											<span>{r.dv ?? ""}</span>
+										</div>
+									))}
+
+									<div className="pd-nutrition-row pd-nutrition-rule">
+										<span>Alcohol By Volume</span><span>{nutrition.alcohol}</span>
+									</div>
 								</div>
-								<div className="pd-nutrition-row">
-									<span>Total Fat</span><span>{nutrition.totalFat}</span>
-								</div>
-								<div className="pd-nutrition-row">
-									<span>Sodium</span><span>{nutrition.sodium}</span>
-								</div>
-								<div className="pd-nutrition-row">
-									<span>Total Carbs</span><span>{nutrition.totalCarbs}</span>
-								</div>
-								<div className="pd-nutrition-row pd-nutrition-indent">
-									<span>Total Sugars</span><span>{nutrition.totalSugars}</span>
-								</div>
-								<div className="pd-nutrition-row pd-nutrition-indent">
-									<span>Added Sugars</span><span>{nutrition.addedSugars}</span>
-								</div>
-								<div className="pd-nutrition-row">
-									<span>Protein</span><span>{nutrition.protein}</span>
-								</div>
-								<div className="pd-nutrition-row">
-									<span>Alcohol By Volume</span><span>{nutrition.alcohol}</span>
-								</div>
-								<p className="pd-serving">Per {nutrition.servingSize}</p>
+
+								<p className="pd-nutrition-footnote">
+									* The % Daily Value (DV) tells you how much a nutrient in a serving of food
+									contributes to a daily diet. 2,000 calories a day is used for general
+									nutrition advice.
+								</p>
 							</div>
 						)}
 

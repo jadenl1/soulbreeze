@@ -19,6 +19,43 @@ export const VARIETY_PACKS = [
 const SIZES = ["12 oz Can"];
 const PACKS = ["4-Pack"];
 
+// Every value below is transcribed from the TTB nutrition panels
+// (FN16528–FN16531). Rows mirror the printed label's order and indentation so
+// the two can be checked against each other line by line.
+const BASE_ROWS = [
+  { label: "Total Fat", value: "0g", dv: "0%" },
+  { label: "Saturated Fat", value: "0g", dv: "0%", indent: 1 },
+  { label: "Trans Fat", value: "0g", indent: 1, italic: true },
+  { label: "Cholesterol", value: "0mg", dv: "0%" },
+  { label: "Sodium", value: "45mg", dv: "2%" },
+];
+
+const AFTER_CARB_ROWS = [
+  { label: "Dietary Fiber", value: "0g", dv: "0%", indent: 1 },
+  { label: "Total Sugars", value: "0g", indent: 1 },
+  { label: "Includes 0g Added Sugars", dv: "0%", indent: 2 },
+  { label: "Protein", value: "0g" },
+];
+
+function nutrition({ calories, carbs, carbsDv }) {
+  return {
+    servingSize: "355mL",
+    servingsPerContainer: "About 1",
+    calories,
+    alcohol: "4.5% ABV",
+    rows: [
+      ...BASE_ROWS,
+      { label: "Total Carbohydrate", value: carbs, dv: carbsDv },
+      ...AFTER_CARB_ROWS,
+    ],
+  };
+}
+
+// Identical across Original, Peach and Raspberry.
+const TEA_INGREDIENTS =
+  "RO Water, Tequila, Brewed Black Tea Extract, Natural Flavors, Citric Acid, " +
+  "Potassium Sorbate, Sodium Benzoate, Sea Salt, Sucralose.";
+
 export const PRODUCTS = [
   {
     id: "1",
@@ -27,30 +64,20 @@ export const PRODUCTS = [
     image: canBlue,
     rating: 5,
     description:
-      "The sweet tea you know and love, reimagined with premium tequila. Smooth, refreshing, and made for wherever the day takes you.",
+      "The one everything else is built around: brewed black tea and tequila, and not much else. Clean and balanced, with the tea left plainly in charge.",
     highlights: [
+      { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
       { icon: "bubbles", label: "NO BUBBLES" },
-      { icon: "carbs", label: "2g CARBS" },
+      { icon: "carbs", label: "<1g CARBS" },
     ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "70", label: "Cal" },
       { value: "0g", label: "Sugar" },
     ],
-    nutrition: {
-      servingSize: "12 fl oz (355mL)",
-      calories: 70,
-      totalFat: "0g",
-      sodium: "10mg",
-      totalCarbs: "2g",
-      totalSugars: "0g",
-      addedSugars: "0g",
-      protein: "0g",
-      alcohol: "4.5% ABV",
-    },
-    ingredients:
-      "Sparkling Water, Blue Agave Tequila (4.5%), Brewed Sweet Tea, Natural Lime Flavor, Citric Acid.",
+    nutrition: nutrition({ calories: 70, carbs: "<1g", carbsDv: "0%" }),
+    ingredients: TEA_INGREDIENTS,
     sizes: SIZES,
     packs: PACKS,
   },
@@ -61,30 +88,20 @@ export const PRODUCTS = [
     image: canPeach,
     rating: 4,
     description:
-      "You love peach tea. We made it with premium tequila. Smooth, refreshing, and ready for every occasion.",
+      "Black tea with peach layered over the top — the fruit arrives first, the tea closes it out. Rounder than the Original without losing the edge.",
     highlights: [
+      { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
       { icon: "bubbles", label: "NO BUBBLES" },
-      { icon: "carbs", label: "0g CARBS" },
+      { icon: "carbs", label: "<1g CARBS" },
     ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "80", label: "Cal" },
       { value: "0g", label: "Sugar" },
     ],
-    nutrition: {
-      servingSize: "12 fl oz (355mL)",
-      calories: 80,
-      totalFat: "0g",
-      sodium: "10mg",
-      totalCarbs: "0g",
-      totalSugars: "0g",
-      addedSugars: "0g",
-      protein: "0g",
-      alcohol: "4.5% ABV",
-    },
-    ingredients:
-      "Sparkling Water, Blue Agave Tequila (4.5%), Brewed White Tea, Natural Peach Flavor, Natural Honey Flavor, Citric Acid.",
+    nutrition: nutrition({ calories: 80, carbs: "<1g", carbsDv: "0%" }),
+    ingredients: TEA_INGREDIENTS,
     sizes: SIZES,
     packs: PACKS,
   },
@@ -95,30 +112,20 @@ export const PRODUCTS = [
     image: canRaspberry,
     rating: 5,
     description:
-      "Sweet raspberry tea meets premium tequila for a refreshingly different take on a classic favorite.",
+      "Raspberry against brewed black tea, tart and a little sharp. The fruit reads bright rather than syrupy, and the tea keeps it from going soft.",
     highlights: [
+      { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
       { icon: "bubbles", label: "NO BUBBLES" },
-      { icon: "carbs", label: "0g CARBS" },
+      { icon: "carbs", label: "<1g CARBS" },
     ],
     callouts: [
       { value: "4.5%", label: "ABV" },
       { value: "70", label: "Cal" },
       { value: "0g", label: "Sugar" },
     ],
-    nutrition: {
-      servingSize: "12 fl oz (355mL)",
-      calories: 70,
-      totalFat: "0g",
-      sodium: "10mg",
-      totalCarbs: "0g",
-      totalSugars: "0g",
-      addedSugars: "0g",
-      protein: "0g",
-      alcohol: "4.5% ABV",
-    },
-    ingredients:
-      "Sparkling Water, Blue Agave Tequila (4.5%), Brewed Hibiscus Tea, Natural Raspberry Flavor, Natural Citrus Flavor, Citric Acid.",
+    nutrition: nutrition({ calories: 70, carbs: "<1g", carbsDv: "0%" }),
+    ingredients: TEA_INGREDIENTS,
     sizes: SIZES,
     packs: PACKS,
   },
@@ -129,8 +136,9 @@ export const PRODUCTS = [
     image: canYellow,
     rating: 4,
     description:
-      "You already love lemonade and tea. We made it with premium tequila.",
+      "Lemon juice cut into brewed black tea, the pairing that has been sharing a glass for decades. Citrus-forward and properly tart — the sharpest pour in the lineup.",
     highlights: [
+      { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
       { icon: "bubbles", label: "NO BUBBLES" },
       { icon: "carbs", label: "2g CARBS" },
@@ -140,19 +148,10 @@ export const PRODUCTS = [
       { value: "80", label: "Cal" },
       { value: "0g", label: "Sugar" },
     ],
-    nutrition: {
-      servingSize: "12 fl oz (355mL)",
-      calories: 80,
-      totalFat: "0g",
-      sodium: "10mg",
-      totalCarbs: "2g",
-      totalSugars: "0g",
-      addedSugars: "0g",
-      protein: "0g",
-      alcohol: "4.5% ABV",
-    },
+    nutrition: nutrition({ calories: 80, carbs: "2g", carbsDv: "1%" }),
     ingredients:
-      "Sparkling Water, Blue Agave Tequila (4.5%), Brewed Green Tea, Natural Mango Flavor, Natural Pineapple Flavor, Citric Acid.",
+      "RO Water, Tequila, Lemon Juice Concentrate, Brewed Black Tea Extract, Citric Acid, " +
+      "Natural Flavors, Potassium Sorbate, Sodium Benzoate, Sea Salt, Sucralose.",
     sizes: SIZES,
     packs: PACKS,
   },
