@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa6";
-import can from "../assets/can-transparent.png";
-import canYellow from "../assets/can-transparent-yellow.png";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
 import "../styles/Products.css";
 
@@ -29,10 +27,10 @@ export default function Products() {
 					</div>
 				</div>
 				<div className="products-hero-cans">
-					{[0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1].map((isYellow, i) => (
+					{Array.from({ length: 13 }, (_, i) => (
 						<img
 							key={i}
-							src={isYellow ? canYellow : can}
+							src={PRODUCTS[i % PRODUCTS.length].image}
 							alt=""
 							className="products-hero-can-img"
 							style={{ animationDelay: `${Math.abs(i - 6) * 60}ms` }}
@@ -55,7 +53,7 @@ export default function Products() {
 							data-aos-delay={i * 80}
 						>
 							<div className="product-can-wrap">
-								<img src={can} alt={flavor.name} className="product-can" />
+								<img src={flavor.image} alt={flavor.name} className="product-can" />
 							</div>
 							<div className="product-card-body">
 								<h3 className="product-name">{flavor.name}</h3>

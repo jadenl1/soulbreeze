@@ -1,7 +1,6 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa6";
-import can from "../assets/can-transparent.png";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
 import "../styles/VarietyPackDetail.css";
 
@@ -102,7 +101,7 @@ export default function VarietyPackDetail() {
 										data-aos="fade-up"
 										data-aos-delay={i * 80}
 									>
-										<img src={can} alt={flavor.name} className="vpd-flavor-can" />
+										<img src={flavor.image} alt={flavor.name} className="vpd-flavor-can" />
 										<div className="vpd-flavor-info">
 											<span className="vpd-flavor-name">{flavor.name}</span>
 											<span className="vpd-flavor-subtitle">{flavor.subtitle}</span>

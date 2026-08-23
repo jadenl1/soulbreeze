@@ -1,7 +1,6 @@
 import { useState, useRef, useLayoutEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa6";
-import can from "../assets/can-transparent.png";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
 import "../styles/ProductDetail.css";
 
@@ -41,7 +40,7 @@ export default function ProductDetail() {
 		<div className="pd-page">
 			{/* Can */}
 			<div className="pd-left" data-aos="fade-up" data-aos-delay="0">
-				<img src={can} alt={product.name} className="pd-can-img" />
+				<img src={product.image} alt={product.name} className="pd-can-img" />
 				<div className="pd-callouts">
 					{product.callouts.map((c, i) => (
 						<div key={i} className="pd-callout">

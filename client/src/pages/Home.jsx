@@ -7,7 +7,10 @@ import agaveClassic from "../assets/agave-classic.jpg";
 import agavePeach from "../assets/agave-peach.jpg";
 import agaveRaspberry from "../assets/agave-raspberry.jpg";
 import agaveYellow from "../assets/agave-yellow.jpg";
-import can from "../assets/can-transparent.png";
+import canBlue from "../assets/cans/can-blue.webp";
+import canPeach from "../assets/cans/can-peach.webp";
+import canRaspberry from "../assets/cans/can-raspberry.webp";
+import canYellow from "../assets/cans/can-yellow.webp";
 import agaveBlue from "../assets/agave-blue-transparent.png";
 import cheers from "../assets/Desktop-Cheers.jpg";
 import "../styles/Home.css";
@@ -51,25 +54,25 @@ export default function Home() {
 						className="ribbon-segment ribbon-1"
 						style={{ backgroundImage: `url(${agaveClassic})` }}
 					>
-						<img src={can} alt="" className="ribbon-can" />
+						<img src={canBlue} alt="" className="ribbon-can" />
 					</div>
 					<div
 						className="ribbon-segment ribbon-2"
 						style={{ backgroundImage: `url(${agavePeach})` }}
 					>
-						<img src={can} alt="" className="ribbon-can" />
+						<img src={canPeach} alt="" className="ribbon-can" />
 					</div>
 					<div
 						className="ribbon-segment ribbon-3"
 						style={{ backgroundImage: `url(${agaveRaspberry})` }}
 					>
-						<img src={can} alt="" className="ribbon-can" />
+						<img src={canRaspberry} alt="" className="ribbon-can" />
 					</div>
 					<div
 						className="ribbon-segment ribbon-4"
 						style={{ backgroundImage: `url(${agaveYellow})` }}
 					>
-						<img src={can} alt="" className="ribbon-can" />
+						<img src={canYellow} alt="" className="ribbon-can" />
 					</div>
 				</div>
 			</div>
@@ -141,7 +144,7 @@ export default function Home() {
 						data-aos-delay="200"
 					>
 						<div className="feature-lineup-can-wrap">
-							<img src={can} alt="" className="feature-lineup-can" />
+							<img src={canBlue} alt="" className="feature-lineup-can" />
 						</div>
 						<h2 className="feature-heading feature-heading-dark feature-lineup-heading">
 							Our Lineup

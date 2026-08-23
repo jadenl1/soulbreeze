@@ -1,3 +1,8 @@
+import canBlue from "../assets/cans/can-blue.webp";
+import canPeach from "../assets/cans/can-peach.webp";
+import canRaspberry from "../assets/cans/can-raspberry.webp";
+import canYellow from "../assets/cans/can-yellow.webp";
+
 export const VARIETY_PACKS = [
   {
     id: "1",
@@ -19,6 +24,7 @@ export const PRODUCTS = [
     id: "1",
     name: "Classic",
     subtitle: "Brewed Tea",
+    image: canBlue,
     rating: 5,
     description:
       "The sweet tea you know and love, reimagined with premium tequila. Smooth, refreshing, and made for wherever the day takes you.",
@@ -47,6 +53,7 @@ export const PRODUCTS = [
     id: "2",
     name: "Peach Tea",
     subtitle: "Brewed Tea · Peach",
+    image: canPeach,
     rating: 4,
     description:
       "You love peach tea. We made it with premium tequila. Smooth, refreshing, and ready for every occasion.",
@@ -75,6 +82,7 @@ export const PRODUCTS = [
     id: "3",
     name: "Raspberry Tea",
     subtitle: "Brewed Tea · Raspberry",
+    image: canRaspberry,
     rating: 5,
     description:
       "Sweet raspberry tea meets premium tequila for a refreshingly different take on a classic favorite.",
@@ -103,6 +111,7 @@ export const PRODUCTS = [
     id: "4",
     name: "Lemonade & Tea",
     subtitle: "Brewed Tea · Lemonade",
+    image: canYellow,
     rating: 4,
     description:
       "You already love lemonade and tea. We made it with premium tequila.",
