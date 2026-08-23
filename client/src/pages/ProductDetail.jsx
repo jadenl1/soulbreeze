@@ -25,12 +25,12 @@ export default function ProductDetail() {
 		);
 	}
 
-	// const { nutrition } = product;
+	const { nutrition } = product;
 	const includedIn = VARIETY_PACKS.filter((vp) => vp.flavors.includes(product.id));
 
 	const tabs = [
 		{ id: "description", label: "Description" },
-		// { id: "nutrition", label: "Nutrition Facts" },
+		{ id: "serving", label: "Serving Facts" },
 		// { id: "ingredients", label: "Ingredients" },
 		{ id: "sizes", label: "Sizes & Packs" },
 		...(includedIn.length > 0 ? [{ id: "variety", label: "Variety Packs" }] : []),
@@ -101,7 +101,7 @@ export default function ProductDetail() {
 							<p className="pd-description">{product.description}</p>
 						)}
 
-						{/* {activeTab === "nutrition" && (
+						{activeTab === "serving" && (
 							<div className="pd-nutrition-grid">
 								<div className="pd-nutrition-row pd-nutrition-calories">
 									<span>Calories</span><span className="pd-nutrition-cal-num">{nutrition.calories}</span>
@@ -129,7 +129,7 @@ export default function ProductDetail() {
 								</div>
 								<p className="pd-serving">Per {nutrition.servingSize}</p>
 							</div>
-						)} */}
+						)}
 
 						{/* {activeTab === "ingredients" && (
 							<p className="pd-text">{product.ingredients}</p>
