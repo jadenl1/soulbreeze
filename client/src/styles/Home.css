@@ -46,7 +46,7 @@
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	height: 130%;
+	height: 114%;
 	width: auto;
 }
 
@@ -650,7 +650,7 @@
 	}
 
 	.ribbon-can {
-		height: 138%;
+		height: 120%;
 	}
 
 	/* Social gallery — peek carousel: centered photo with the previous

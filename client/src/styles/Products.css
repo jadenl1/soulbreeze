@@ -92,15 +92,17 @@
 	to   { opacity: 1; }
 }
 
+/* Sized to its own content rather than a viewport multiple, so the row is
+   always as wide as the cans need and the hero's overflow clips it at the
+   screen edges. */
 .products-hero-cans {
 	display: flex;
 	align-items: flex-end;
-	justify-content: center;
 	position: absolute;
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 150vw;
+	width: max-content;
 	pointer-events: none;
 }
 
@@ -109,11 +111,11 @@
 }
 
 .products-hero-can-img {
-	height: 340px;
+	height: 300px;
 	width: auto;
 	object-fit: contain;
 	flex-shrink: 0;
-	margin: 0 -12px;
+	margin: 0 1px;
 }
 
 /* Section headers */
@@ -403,19 +405,15 @@
 		font-size: 64px;
 	}
 
-	.products-hero-cans {
-		width: auto;
-	}
-
-	/* Show only the middle 6 cans on mobile (13 total) */
-	.products-hero-can-img:nth-child(-n + 4),
-	.products-hero-can-img:nth-child(n + 11) {
+	/* Show only the middle 6 cans on mobile (29 total) */
+	.products-hero-can-img:nth-child(-n + 12),
+	.products-hero-can-img:nth-child(n + 19) {
 		display: none;
 	}
 
 	.products-hero-can-img {
-		height: 290px;
-		margin: 0 -14px;
+		height: 250px;
+		margin: 0 -5px;
 	}
 
 	/* Grids */

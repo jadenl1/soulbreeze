@@ -3,6 +3,11 @@ import { FaStar, FaRegStar } from "react-icons/fa6";
 import { PRODUCTS, VARIETY_PACKS } from "../data/products";
 import "../styles/Products.css";
 
+// The hero row runs off both edges of the screen rather than ending inside
+// it, so there are more cans here than any one viewport shows — the hero
+// clips the rest. Enough to still reach both edges at 2560px wide.
+const HERO_CAN_COUNT = 29;
+
 export default function Products() {
 	return (
 		<>
@@ -27,13 +32,16 @@ export default function Products() {
 					</div>
 				</div>
 				<div className="products-hero-cans">
-					{Array.from({ length: 13 }, (_, i) => (
+					{Array.from({ length: HERO_CAN_COUNT }, (_, i) => (
 						<img
 							key={i}
 							src={PRODUCTS[i % PRODUCTS.length].image}
 							alt=""
 							className="products-hero-can-img"
-							style={{ animationDelay: `${Math.abs(i - 6) * 60}ms` }}
+							style={{
+								// Fade outward from the middle of the row.
+								animationDelay: `${Math.abs(i - (HERO_CAN_COUNT - 1) / 2) * 35}ms`,
+							}}
 						/>
 					))}
 				</div>
