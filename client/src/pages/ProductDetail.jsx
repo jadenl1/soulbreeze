@@ -33,7 +33,6 @@ export default function ProductDetail() {
 		{ id: "description", label: "Description" },
 		{ id: "serving", label: "Serving Facts" },
 		// { id: "ingredients", label: "Ingredients" },
-		{ id: "sizes", label: "Sizes & Packs" },
 		...(includedIn.length > 0 ? [{ id: "variety", label: "Variety Packs" }] : []),
 	];
 
@@ -99,19 +98,44 @@ export default function ProductDetail() {
 
 					<div className="pd-tab-content" key={activeTab}>
 						{activeTab === "description" && (
-							<>
-								<p className="pd-description">{product.description}</p>
-								<ul className="pd-highlights">
-									{product.highlights.map((h) => (
-										<li key={h.label} className="pd-highlight">
-											<span className="pd-highlight-icon">
-												<HighlightIcon name={h.icon} />
-											</span>
-											<span className="pd-highlight-label">{h.label}</span>
-										</li>
-									))}
-								</ul>
-							</>
+							<div className="pd-overview">
+								<section className="pd-section">
+									<h3 className="pd-section-label">At a Glance</h3>
+									<ul className="pd-highlights">
+										{product.highlights.map((h) => (
+											<li key={h.label} className="pd-highlight">
+												<span className="pd-highlight-icon">
+													<HighlightIcon name={h.icon} />
+												</span>
+												<span className="pd-highlight-label">{h.label}</span>
+											</li>
+										))}
+									</ul>
+								</section>
+
+								<section className="pd-section">
+									<h3 className="pd-section-label">About</h3>
+									<p className="pd-description">{product.description}</p>
+								</section>
+
+								<section className="pd-section">
+									<h3 className="pd-section-label">Sizes &amp; Packs</h3>
+									<div className="pd-sizes">
+										<div className="pd-sizes-group">
+											<span className="pd-sizes-label">Sizes</span>
+											<div className="pd-tags">
+												{product.sizes.map((s) => <span key={s} className="pd-tag">{s}</span>)}
+											</div>
+										</div>
+										<div className="pd-sizes-group">
+											<span className="pd-sizes-label">Packs</span>
+											<div className="pd-tags">
+												{product.packs.map((p) => <span key={p} className="pd-tag">{p}</span>)}
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
 						)}
 
 						{activeTab === "serving" && (
@@ -147,23 +171,6 @@ export default function ProductDetail() {
 						{/* {activeTab === "ingredients" && (
 							<p className="pd-text">{product.ingredients}</p>
 						)} */}
-
-						{activeTab === "sizes" && (
-							<div className="pd-sizes">
-								<div className="pd-sizes-group">
-									<span className="pd-sizes-label">Sizes</span>
-									<div className="pd-tags">
-										{product.sizes.map((s) => <span key={s} className="pd-tag">{s}</span>)}
-									</div>
-								</div>
-								<div className="pd-sizes-group">
-									<span className="pd-sizes-label">Packs</span>
-									<div className="pd-tags">
-										{product.packs.map((p) => <span key={p} className="pd-tag">{p}</span>)}
-									</div>
-								</div>
-							</div>
-						)}
 
 						{activeTab === "variety" && (
 							<div className="pd-variety-grid">
