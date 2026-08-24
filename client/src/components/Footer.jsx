@@ -34,7 +34,13 @@ export default function Footer() {
           <div className="footer-col">
             <span className="footer-col-title">SOCIAL</span>
             <div className="footer-social">
-              <a href="#" aria-label="Instagram" className="footer-icon">
+              <a
+                href="https://www.instagram.com/drinksoulbreeze/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="footer-icon"
+              >
                 <FaInstagram />
               </a>
               <a href="#" aria-label="TikTok" className="footer-icon">

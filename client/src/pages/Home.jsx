@@ -191,7 +191,13 @@ export default function Home() {
 					and opportunities available only to our ambassadors.
 				</p>
 				<div className="ambassador-social" data-aos="fade-up" data-aos-delay="260">
-					<a href="#" aria-label="Instagram" className="ambassador-icon">
+					<a
+						href="https://www.instagram.com/drinksoulbreeze/"
+						target="_blank"
+						rel="noreferrer"
+						aria-label="Instagram"
+						className="ambassador-icon"
+					>
 						<FaInstagram />
 					</a>
 					<a href="#" aria-label="TikTok" className="ambassador-icon">
