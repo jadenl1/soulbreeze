@@ -1,16 +1,76 @@
-# React + Vite
+# Soulbreeze
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite website with an Express API for ambassador application emails.
 
-Currently, two official plugins are available:
+## Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```text
+📁 soulbreeze/
+├── 📁 client/                 Frontend
+│   ├── 📁 public/             Static files
+│   ├── 📁 src/
+│   │   ├── 📁 assets/         Images and logos
+│   │   ├── 📁 components/     Shared UI
+│   │   ├── 📁 data/           Product data
+│   │   ├── 📁 pages/          Page components
+│   │   ├── 📁 styles/         CSS
+│   │   ├── ⚛️ App.jsx         Layout and routes
+│   │   ├── ⚛️ main.jsx        Entry point
+│   │   └── 🎨 index.css       Global styles
+│   ├── ⚙️ vite.config.js
+│   └── 📦 package.json
+├── 📁 server/                 API
+│   ├── 📁 lib/                Validation and email helpers
+│   ├── 📜 server.js           Routes and startup
+│   ├── ⚙️ .env.example
+│   ├── 📦 package.json
+│   └── 📝 README.md           API and deployment details
+└── 📝 README.md
+```
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Requires Node.js 22.13+ (22.x) or 24+. Run from the repository root:
 
-## Expanding the ESLint configuration
+```bash
+npm --prefix client ci
+npm --prefix server ci
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Set these values in `client/.env`:
+
+```dotenv
+VITE_API_URL=http://localhost:3001
+VITE_MAPBOX_TOKEN=your_mapbox_public_token
+```
+
+If `server/.env` is missing, copy `server/.env.example` to `server/.env`. Fill in `RESEND_API_KEY`, `TO_EMAIL`, and `FROM_EMAIL`; set `ALLOWED_ORIGIN=http://localhost:5173`.
+
+## Start
+
+Run from the repository root in separate terminals:
+
+```bash
+# Frontend → http://localhost:5173
+npm --prefix client run dev
+```
+
+```bash
+# API → http://localhost:3001
+npm --prefix server run dev
+```
+
+Stop with `Ctrl+C`. The frontend works alone; ambassador submissions need the API.
+
+## Other commands
+
+From the repository root:
+
+| Command | Action |
+| --- | --- |
+| `npm --prefix client run build` | Build to `client/dist/` |
+| `npm --prefix client run preview` | Preview after building |
+| `npm --prefix client run lint` | Check frontend code |
+| `npm --prefix server start` | Start API without watch mode; requires environment variables already set |
+
+See [server/README.md](server/README.md) for API and deployment details.

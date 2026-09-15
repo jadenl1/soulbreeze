@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaInstagram, FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 function useIsMobile() {
 	const query = "(max-width: 768px)";
@@ -20,61 +20,47 @@ function useIsMobile() {
 	}, []);
 	return isMobile;
 }
-import placeholder1 from "../assets/gallery-photos/placeholder1.jpg";
-import placeholder2 from "../assets/gallery-photos/placeholder2.jpg";
-import placeholder3 from "../assets/gallery-photos/placeholder3.jpg";
-import placeholder4 from "../assets/gallery-photos/placeholder4.jpg";
-import placeholder5 from "../assets/gallery-photos/placeholder5.jpg";
-import placeholder6 from "../assets/gallery-photos/placeholder6.jpg";
-import placeholder7 from "../assets/gallery-photos/placeholder7.jpg";
-import placeholder8 from "../assets/gallery-photos/placeholder8.jpg";
-import placeholder9 from "../assets/gallery-photos/placeholder9.jpg";
+import photo1 from "../assets/gallery-photos/1.webp";
+import photo2 from "../assets/gallery-photos/2.webp";
+import photo3 from "../assets/gallery-photos/3.webp";
+import photo4 from "../assets/gallery-photos/4.webp";
+import photo5 from "../assets/gallery-photos/5.webp";
+import photo6 from "../assets/gallery-photos/6.webp";
+import photo7 from "../assets/gallery-photos/7.webp";
+import photo8 from "../assets/gallery-photos/8.webp";
 
 const photos = [
 	{
-		img: placeholder1,
-		username: "@coastalcrew",
+		img: photo1,
 		caption: "Friday nights taste better with a Soulbreeze in hand 🌊",
 	},
 	{
-		img: placeholder2,
-		username: "@sunset.sips",
+		img: photo2,
 		caption: "Peach season, but make it breezy.",
 	},
 	{
-		img: placeholder3,
-		username: "@thebeachhouse",
+		img: photo3,
 		caption: "Cheers to the weekend, every weekend.",
 	},
 	{
-		img: placeholder4,
-		username: "@laurenoutside",
+		img: photo4,
 		caption: "Raspberry + sunshine = the only combo I need.",
 	},
 	{
-		img: placeholder5,
-		username: "@dockside.dani",
+		img: photo5,
 		caption: "Soaking up the last of summer 🍋",
 	},
 	{
-		img: placeholder6,
-		username: "@reefandrum",
+		img: photo6,
 		caption: "Pour one for the crew 🍹",
 	},
 	{
-		img: placeholder7,
-		username: "@saltyandsweet",
+		img: photo7,
 		caption: "Tequila o'clock somewhere.",
 	},
 	{
-		img: placeholder8,
-		username: "@wanderlust.wave",
+		img: photo8,
 		caption: "Caught the breeze and didn't let go.",
-	},
-	{
-		img: placeholder9,
-		username: "@goldenhourgrace",
-		caption: "Golden hour, golden flavor ✨",
 	},
 ];
 
@@ -83,12 +69,10 @@ export default function SocialGallery() {
 	return isMobile ? <MobileCarousel /> : <DesktopGallery />;
 }
 
-/* Mobile — peek carousel. Only centers photos that have a neighbor on
-   both sides (2nd through 2nd-to-last), starting on the 2nd photo and
-   rewinding back to it at the end. */
+/* Mobile — peek carousel, cycling through all eight photos in order. */
 function MobileCarousel() {
-	const FIRST = 1;
-	const LAST = photos.length - 2;
+	const FIRST = 0;
+	const LAST = photos.length - 1;
 	const [activeIndex, setActiveIndex] = useState(FIRST);
 
 	useEffect(() => {
@@ -96,7 +80,7 @@ function MobileCarousel() {
 			setActiveIndex((i) => (i >= LAST ? FIRST : i + 1));
 		}, 3500);
 		return () => clearTimeout(timer);
-	}, [activeIndex]);
+	}, [activeIndex, LAST]);
 
 	return (
 		<section className="social-gallery social-gallery-mobile">
@@ -105,19 +89,15 @@ function MobileCarousel() {
 					const isActive = index === activeIndex;
 					return (
 						<div
-							key={index}
+							key={photo.img}
 							className={`social-photo${isActive ? " social-photo-active" : ""}`}
 						>
-							{isActive && (
-								<div className="social-photo-header">
-									<FaInstagram />
-									<span>{photo.username}</span>
-								</div>
-							)}
 							<img
 								src={photo.img}
 								alt={photo.caption}
 								className="social-photo-img"
+								loading="lazy"
+								decoding="async"
 							/>
 						</div>
 					);
@@ -153,20 +133,16 @@ function DesktopGallery() {
 					const isActive = index === activeIndex;
 					return (
 						<div
-							key={photo.username}
+							key={photo.img}
 							className={`social-photo${isActive ? " social-photo-active" : ""}`}
 							onClick={() => setActiveIndex(index)}
 						>
-							{isActive && (
-								<div className="social-photo-header">
-									<FaInstagram />
-									<span>{photo.username}</span>
-								</div>
-							)}
 							<img
 								src={photo.img}
 								alt={photo.caption}
 								className="social-photo-img"
+								loading="lazy"
+								decoding="async"
 							/>
 						</div>
 					);
