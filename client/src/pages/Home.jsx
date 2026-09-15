@@ -12,7 +12,7 @@ import canPeach from "../assets/cans/can-peach.webp";
 import canRaspberry from "../assets/cans/can-raspberry.webp";
 import canYellow from "../assets/cans/can-yellow.webp";
 import agaveBlue from "../assets/agave-blue-transparent.png";
-import cheers from "../assets/Desktop-Cheers.jpg";
+import cheers from "../assets/gallery-photos/3.webp";
 import "../styles/Home.css";
 
 export default function Home() {
