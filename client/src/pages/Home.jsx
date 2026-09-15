@@ -165,10 +165,10 @@ export default function Home() {
 						Created With Soul.
 					</h2>
 					<p className="story-text" data-aos="fade-up" data-aos-delay="180">
-						Tea has always been refreshing. Tequila has always been about good times. we believe the two belong together so we combine premium Tequila with freshly brewed tea to create a smoother fresh cocktail. That’s incredibly easy to drink.
+						Tea has always been refreshing. Tequila has always been about good times. We believe the two belong together, so we combine premium tequila with freshly brewed tea to create a smoother, fresh cocktail that’s incredibly easy to drink.
 					</p>
 					<p className="story-text" data-aos="fade-up" data-aos-delay="240">
-						No unnecessary ingredients. No compromise just a better way to enjoy Tequila if you’re by the pool, relaxing with friends, we’re celebrating life’s biggest moments and SoulBreeze crafted elevate every occasion.
+						No unnecessary ingredients. No compromise. Just a better way to enjoy tequila. If you’re by the pool, relaxing with friends, or celebrating life’s biggest moments, SoulBreeze is crafted to elevate every occasion.
 					</p>
 				</div>
 			</section>

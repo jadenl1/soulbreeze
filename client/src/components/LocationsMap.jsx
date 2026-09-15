@@ -5,26 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import logo from "../assets/soulbreeze-logo-light.png";
 import "../styles/LocationsMap.css";
 
-const locations = [
-	{
-		name: "Annapolis, MD",
-		address: "110 Compromise St, Annapolis, MD 21401",
-		lat: 38.9784,
-		lng: -76.4922,
-	},
-	{
-		name: "Philadelphia, PA",
-		address: "1234 Market St, Philadelphia, PA 19107",
-		lat: 39.9526,
-		lng: -75.1652,
-	},
-	{
-		name: "Hoboken, NJ",
-		address: "88 River St, Hoboken, NJ 07030",
-		lat: 40.744,
-		lng: -74.0324,
-	},
-];
+const locations = [];
 
 function getDistanceMiles(lat1, lng1, lat2, lng2) {
 	const toRad = (deg) => (deg * Math.PI) / 180;
@@ -75,6 +56,11 @@ export default function LocationsMap() {
 				lng: position.coords.longitude,
 			};
 			setUserLocation(coords);
+
+			if (locations.length === 0) {
+				setViewState({ longitude: coords.lng, latitude: coords.lat, zoom: 9 });
+				return;
+			}
 
 			const closest = locations.reduce((closestLoc, loc) => {
 				const dist = getDistanceMiles(coords.lat, coords.lng, loc.lat, loc.lng);
