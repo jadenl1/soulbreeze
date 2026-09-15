@@ -499,16 +499,13 @@
 }
 
 .pd-variety-pack-thumb {
+	scale: 1.1;
+	display: block;
 	width: 100%;
+	height: auto;
 	aspect-ratio: 1;
-	background-color: var(--color-secondary-light);
+	object-fit: contain;
 	border-radius: 16px 16px 0 0;
-	opacity: 0.3;
-	transition: opacity 0.3s ease;
-}
-
-.pd-variety-card:hover .pd-variety-pack-thumb {
-	opacity: 0.45;
 }
 
 .pd-variety-info {

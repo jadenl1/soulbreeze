@@ -107,7 +107,15 @@ export default function Products() {
 							data-aos="fade-up"
 							data-aos-delay={i * 80}
 						>
-							<div className="variety-card-img" />
+							<img
+								src={vp.image}
+								alt={`SoulBreeze ${vp.name} variety pack`}
+								className="variety-card-img"
+								width={1200}
+								height={983}
+								loading="lazy"
+								decoding="async"
+							/>
 							<div className="variety-card-body">
 								<h3 className="product-name">{vp.name}</h3>
 								<p className="product-subtitle">{vp.flavorLabels.join(" · ")}</p>

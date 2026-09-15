@@ -29,9 +29,16 @@ export default function VarietyPackDetail() {
 
 	return (
 		<div className="vpd-page">
-			{/* Left — placeholder + callouts */}
+			{/* Left — pack image + callouts */}
 			<div className="vpd-left" data-aos="fade-up" data-aos-delay="0">
-				<div className="vpd-placeholder" />
+				<img
+					src={pack.image}
+					alt={`SoulBreeze ${pack.name} variety pack`}
+					className="vpd-pack-image"
+					width={1200}
+					height={983}
+					decoding="async"
+				/>
 				<div className="vpd-callouts">
 					<div className="vpd-callout">
 						<span className="vpd-callout-value">{pack.totalCans}</span>

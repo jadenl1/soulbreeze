@@ -185,7 +185,15 @@ export default function ProductDetail() {
 							<div className="pd-variety-grid">
 								{includedIn.map((vp) => (
 									<Link key={vp.id} to={`/products/variety/${vp.id}`} className="pd-variety-card">
-										<div className="pd-variety-pack-thumb" />
+										<img
+											src={vp.image}
+											alt={`SoulBreeze ${vp.name} variety pack`}
+											className="pd-variety-pack-thumb"
+											width={1200}
+											height={983}
+											loading="lazy"
+											decoding="async"
+										/>
 										<div className="pd-variety-info">
 											<span className="pd-variety-name">{vp.name}</span>
 											<span className="pd-variety-flavors">

@@ -162,11 +162,14 @@
 }
 
 .variety-card-img {
+	scale: 1.1;
+	display: block;
 	width: 100%;
+	height: auto;
 	aspect-ratio: 1;
-	background-color: var(--color-secondary-light);
+	object-fit: contain;
 	border-radius: 16px;
-	opacity: 0.3;
+	transition: transform 0.5s ease;
 }
 
 .variety-card-body {
@@ -221,7 +224,8 @@
 	transition: transform 0.5s ease;
 }
 
-.product-card:hover .product-can {
+.product-card:hover .product-can,
+.variety-card:hover .variety-card-img {
 	transform: translateY(-14px) scale(1.06);
 }
 
@@ -458,7 +462,8 @@
 	}
 
 	/* No hover lift on touch (it sticks after a tap) */
-	.product-card:hover .product-can {
+	.product-card:hover .product-can,
+	.variety-card:hover .variety-card-img {
 		transform: none;
 	}
 
@@ -527,4 +532,3 @@
 		font-size: 18px;
 	}
 }
-

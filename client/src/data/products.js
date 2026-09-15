@@ -2,15 +2,17 @@ import canBlue from "../assets/cans/can-blue.webp";
 import canPeach from "../assets/cans/can-peach.webp";
 import canRaspberry from "../assets/cans/can-raspberry.webp";
 import canYellow from "../assets/cans/can-yellow.webp";
+import varietyBox from "../assets/packs/variety-box.png";
 
 export const VARIETY_PACKS = [
   {
     id: "1",
     name: "Ice Tea Pack",
+    image: varietyBox,
     subtitle: "Four refreshing flavors. One refreshingly different way to enjoy tequila.",
     flavors: ["1", "2", "3", "4"],
-    flavorLabels: ["Original", "Peach Tea", "Raspberry Tea", "Half & Half"],
-    description: "From Original to Half & Half, experience the full SoulBreeze lineup in one pack.",
+    flavorLabels: ["Classic Tea", "Peach Tea", "Raspberry Tea", "Half & Half"],
+    description: "From Classic Tea to Half & Half, experience the full SoulBreeze lineup in one pack.",
     totalCans: 8,
     rating: 5,
   },
@@ -51,7 +53,7 @@ function nutrition({ calories, carbs, carbsDv }) {
   };
 }
 
-// Identical across Original, Peach and Raspberry.
+// Identical across Classic Tea, Peach and Raspberry.
 const TEA_INGREDIENTS =
   "RO Water, Tequila, Brewed Black Tea Extract, Natural Flavors, Citric Acid, " +
   "Potassium Sorbate, Sodium Benzoate, Sea Salt, Sucralose.";
@@ -59,12 +61,12 @@ const TEA_INGREDIENTS =
 export const PRODUCTS = [
   {
     id: "1",
-    name: "Original",
+    name: "Classic Tea",
     subtitle: "Brewed Tea",
     image: canBlue,
     rating: 5,
     description:
-      "The one everything else is built around: brewed black tea and tequila, and not much else. Clean and balanced, with the tea left plainly in charge.",
+      "The one that started it all. Brewed black tea and tequila come together for a clean, crisp, easy-drinking take on a classic iced tea.",
     highlights: [
       { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
@@ -86,9 +88,9 @@ export const PRODUCTS = [
     name: "Peach Tea",
     subtitle: "Brewed Tea · Peach",
     image: canPeach,
-    rating: 4,
+    rating: 5,
     description:
-      "Black tea with peach layered over the top — the fruit arrives first, the tea closes it out. Rounder than the Original without losing the edge.",
+      "Our take on a classic peach tea. Brewed black tea with peach flavor for a smooth, easy-drinking finish.",
     highlights: [
       { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
@@ -112,7 +114,7 @@ export const PRODUCTS = [
     image: canRaspberry,
     rating: 5,
     description:
-      "Raspberry against brewed black tea, tart and a little sharp. The fruit reads bright rather than syrupy, and the tea keeps it from going soft.",
+      "Raspberry done right. Brewed black tea with bright raspberry flavor for a smooth, refreshing take on raspberry iced tea.",
     highlights: [
       { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
@@ -134,9 +136,9 @@ export const PRODUCTS = [
     name: "Half & Half",
     subtitle: "Brewed Tea · Lemonade",
     image: canYellow,
-    rating: 4,
+    rating: 5,
     description:
-      "Lemon juice cut into brewed black tea, the pairing that has been sharing a glass for decades. Citrus-forward and properly tart — the sharpest pour in the lineup.",
+      "Tea with a little more lemonade. Brewed black tea and lemon come together for a crisp, refreshing take on the classic half & half.",
     highlights: [
       { icon: "tequila", label: "PREMIUM TEQUILA" },
       { icon: "caffeine", label: "CAFFEINE FREE" },
